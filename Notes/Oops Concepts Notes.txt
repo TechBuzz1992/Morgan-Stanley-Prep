@@ -1,1 +1,58 @@
 Java is statically typed langauge. Means type of variable is known at compile time.
+
+Prmitive Types:
+1.Boolean : 1 bit : 0/1
+2.Byte : 1 byte(8 bits) : -128 to 127
+    byte a = 127;
+    a++;
+    Ans. will be -128 as its an overflow.
+3.Int : 32 bits
+4.Float : 32 bits
+5.Long : 64 bits
+6.Double : 64 bits
+7.char : 16 bits 
+
+Enum:
+    enum Color 
+    { 
+        RED, GREEN, BLUE; 
+    } 
+    
+    public class Test 
+    { 
+        // Driver method 
+        public static void main(String[] args) 
+        { 
+            Color c1 = Color.RED; 
+            System.out.println(c1); 
+        } 
+    }
+
+    /* internally above enum Color is converted to
+    class Color
+    {
+        public static final Color RED = new Color();
+        public static final Color BLUE = new Color();
+        public static final Color GREEN = new Color();
+    }*/
+
+Modifier      Package  Subclass  World
+
+public          Yes      Yes     Yes
+
+protected       Yes      Yes     No
+
+Default (no
+modifier)       Yes       No     No
+
+private         No        No     No
+
+
+final as Immutable
+    If we have more than one constructors or overloaded constructor in class, then blank final variable must be initialized in all of them. However constructor chaining can be used to initialize the blank final variable.
+
+Widening or Automatic Conversion:
+    Byte -> Short -> Int -> Long -> Float -> Double
+
+We can static method with null reference but cant call non-static methods with null reference as object is not defined(having null reference)
+
