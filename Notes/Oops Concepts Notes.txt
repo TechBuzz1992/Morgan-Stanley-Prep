@@ -1,0 +1,1 @@
+Java is statically typed langauge. Means type of variable is known at compile time.
