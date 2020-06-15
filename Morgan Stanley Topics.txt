@@ -1,0 +1,99 @@
+Useful Topics for Prep for Morgan Stanley:
+
+Fundamental
+
+	Should know purpose of Keywords, static binding , dynamic binding , overloading rule , overriding rule in terms of access modifier, exception handling, impact of dynamic linking on performance , how to improve performance by using final keyword, what’s default implementation of hash code and equal, cloning, immutability, advantage of immutability , importance of final in security , Exception handling rules
+
+ 
+
+Data Structure
+
+ 	Basic data structures and how those basic data structures internally work. Based on the use cases, developer should answer question which data structure is best fit for the  given use case, how hashing concept works in hash set and map , how to improve map /set performance by optimizing hash code , what is time complexity of different operation on data structure , how resizing happens in data structure , how to use comparable comparator , how to implement different sorting algorithm . how to optimize data structure by changing the capacity and load factor, Should be able to implement one data structure by using another, Should be able to answer how to implement data structures
+
+ 
+
+Concurrent API
+
+How concurrent hash map internally managing a lock how segmentation works
+
+How many thread can work on concurrent hash map
+
+Benefit of using concurrent hash map over hash table and synchronize map
+
+What kind of business use cases can be implemented using  concurrent hash map
+
+How blocking queue works? What kind of problems can be solved by using blocking queue?
+
+When should we use linked blocking queue and when array blocking queue
+
+Implementation of blocking queue
+
+How to use blocking queue in inter thread communication, what’s fail safe iterator
+
+How to implement thread pool , what’s advantage of thread pool , how many type of thread pool do we have ,
+
+How we can use executor service , how to use executor service to implement parallel /pipe line processing.
+
+What kind of business problem can be solved by cyclic barrier and count down latch and how it works?
+
+How to use semaphore, what’s CAS concept (Compare and set), how atomic API works internally
+
+ 
+
+Multithreading
+
+ 	Basics of multithreading , should know how wait , notify , sleep , join, how locking works , what’s class level lock , what’s object lock, how to implement inter thread communication by using wait and notify , how volatile works , volatile keyword , how to implement thread pool in java 4 , how important is immutability in multithreading , what code can create deadlock , what code can create starvation
+
+ 
+
+Serialization
+
+ 	Should know purpose of serialization, purpose of serial version UID, if serial version UID is not define how JVM generates it, how to customize serialization behavior, how to serialize transient variable, how to improve performance by customizing serialization behavior
+
+ 
+
+Memory management
+
+ 	Should know java memory model , should know heap , how garbage collection works , how to optimize memory , should aware where class meta data storing in memory , should know the reason of Perm gen Exception , reason of Out of memory exception , should aware how to do memory profiling , how to identify which code consuming memory
+
+ 
+
+Design Pattern
+
+ 	Should know at least 2 to 3 design pattern thoroughly, while explaining use case implementation should use some of the design pattern , must know best way of implementing singleton pattern , factory pattern, strategy pattern, builder pattern, flyweight pattern, decorator and adapter pattern. Should know at-least 1 example of these patterns implementations from JDK.
+
+ 
+
+Design Principle
+
+ 	Developer should know SOLID concept very well, whenever explaining solution design principle should reflect in his solution, how important is the code for interface concept
+
+ 
+
+Object oriented Concept
+
+ 	Developer should know Encapsulation, Polymorphic, Composition, Inheritance, when should use inheritance when should we use composition.
+
+ 
+
+Database
+
+ 	Developer should be able to write some of query on join and aggregation, should be aware of index, type of index and how indexing works, should be aware all the keys
+
+ 
+
+Spring
+
+	Knows basics of spring like dependency injection (inversion of control), auto wiring (both XML and annotations), bean life cycle, profiling, transaction management and externalization of properties.
+
+ 
+
+Rest
+
+	Basic understanding of REST principles (Uniform interface, Stateless interactions, Cacheable, Client-Server, Layered System, Code on Demand. HTTP protocol (HTTP methods, Headers, Error codes) and concept of resources for REST.
+
+ 
+
+Micro-Services
+
+	What are MicroServices? How it is different from Monolithic architecture? What are the advantages in Micro services w.r.t Monolithic architecture? Small application using Spring boot.
