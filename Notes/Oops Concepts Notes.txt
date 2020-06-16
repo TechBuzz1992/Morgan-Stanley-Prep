@@ -104,4 +104,30 @@ The purpose of start() is to create a separate call stack for the thread. A sepa
 Synchronization is implemented in Java with a concept called monitors. Only one thread can own a monitor at a given time. When a thread acquires a lock, it is said to have entered the monitor. All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor.
 
 Semaphore:
-    
+    In general, to use a semaphore, the thread that wants access to the shared resource tries to acquire a permit.
+
+    1.If the semaphore’s count is greater than zero, then the thread acquires a permit, which causes the semaphore’s count to be decremented.
+    2.Otherwise, the thread will be blocked until a permit can be acquired.
+    3.When the thread no longer needs an access to the shared resource, it releases the permit, which causes the semaphore’s count to be incremented.
+    4.If there is another thread waiting for a permit, then that thread will acquire a permit at that time.
+
+CountDownLatch:
+    CountDownLatch is used to make sure that a task waits for other threads before it starts. To understand its application, let us consider a server where the main task can only start when all the required services have started.
+
+    Working of CountDownLatch:
+        When we create an object of CountDownLatch, we specify the number of threads it should wait for, all such thread are required to do count down by calling CountDownLatch.countDown() once they are completed or ready to the job. As soon as count reaches zero, the waiting task starts running.
+
+Reentrant Lock:
+    The traditional way to achieve thread synchronization in Java is by the use of synchronized keyword. While it provides a certain basic synchronization, the synchronized keyword is quite rigid in its use. For example, a thread can take a lock only once. Synchronized blocks don’t offer any mechanism of a waiting queue and after the exit of one thread, any thread can take the lock. This could lead to starvation of resources for some other thread for a very long period of time.
+
+    Reentrant Locks are provided in Java to provide synchronization with greater flexibility.
+
+Cyclic Barrier:
+    CyclicBarrier is used to make threads wait for each other. It is used when different threads process a part of computation and when all threads have completed the execution, the result needs to be combined in the parent thread. In other words, a CyclicBarrier is used when multiple thread carry out different sub tasks and the output of these sub tasks need to be combined to form the final output. After completing its execution, threads call await() method and wait for other threads to reach the barrier. Once all the threads have reached, the barriers then give the way for threads to proceed.
+
+Callable vs Future:
+    There are two ways of creating threads – one by extending the Thread class and other by creating a thread with a Runnable. However, one feature lacking in  Runnable is that we cannot make a thread return result when it terminates, i.e. when run() completes. For supporting this feature, the Callable interface is present in Java.
+
+Garbage Collection Algorithm:
+    Mark - Sweep:
+        
