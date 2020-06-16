@@ -56,3 +56,34 @@ Widening or Automatic Conversion:
 
 We can static method with null reference but cant call non-static methods with null reference as object is not defined(having null reference)
 
+Exceptions:
+    Hierarchy:
+        Throwable
+            Exceptions 
+                Checked Exception : IO and Compile time
+                UnChecked Exception : NUll pointer Exception and Runtime Exception
+            Error
+                Virtual Machine Error
+                Assertion Error
+
+3 ways to print exception message:
+    1.e.printStackTrace()
+    2.e.toString()
+    3.e.getMessage()
+
+For Interfaces, methods are always public and variables are always public static final.
+
+Java prohrams cant have non-public member interface.
+
+Nested Classes:
+    
+    Static Nested Classes
+    
+    Inner Classes(Non-static nested classes)
+        Local Classes
+        Anonymous Classes
+
+Enumerations:
+    1.Enumeration is for legacy classes(Vector, Hashtable) only. Hence it is not a universal iterator.
+    2.Remove operations can’t be performed using Enumeration.
+    3.Only forward direction iterating is possible.
