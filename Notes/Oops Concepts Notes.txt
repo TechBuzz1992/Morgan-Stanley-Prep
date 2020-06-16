@@ -87,3 +87,10 @@ Enumerations:
     1.Enumeration is for legacy classes(Vector, Hashtable) only. Hence it is not a universal iterator.
     2.Remove operations can’t be performed using Enumeration.
     3.Only forward direction iterating is possible.
+
+In for-each loop, we can’t modify collection, it will throw a ConcurrentModificationException on the other hand with iterator we can modify collection.
+
+Methods to prevent Thread Excecution:
+    1.yield() basically means that the thread is not doing anything particularly important and if any other threads or processes need to be run, they should run. Otherwise, the current thread will continue to run.
+    2.sleep(): This method causes the currently executing thread to sleep for the specified     number of milliseconds, subject to the precision and accuracy of system timers and schedulers.
+    3.If join() is called on a Thread instance, the currently running thread will block until the Thread instance has finished executing.
