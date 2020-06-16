@@ -93,4 +93,15 @@ In for-each loop, we can’t modify collection, it will throw a ConcurrentModifi
 Methods to prevent Thread Excecution:
     1.yield() basically means that the thread is not doing anything particularly important and if any other threads or processes need to be run, they should run. Otherwise, the current thread will continue to run.
     2.sleep(): This method causes the currently executing thread to sleep for the specified     number of milliseconds, subject to the precision and accuracy of system timers and schedulers.
-    3.If join() is called on a Thread instance, the currently running thread will block until the Thread instance has finished executing.
+    3.If join() is called on a Thread instance, the currently running thread will block until the Thread instance has finished executing.If any executing thread t1 calls join() on t2 
+    i.e; t2.join() immediately t1 will enter into waiting state until t2 completes its execution.Giving a timeout within join(), will make the join() effect to be nullified after the specific timeout.
+    4.wait()-It tells the calling thread to give up the lock and go to sleep until some other thread enters the same monitor and calls notify().
+    5.notify()-It wakes up one single thread that called wait() on the same object. It should be noted that calling notify() does not actually give up a lock on a resource.
+    6.notifyAll()-It wakes up all the threads that called wait() on the same object.
+
+The purpose of start() is to create a separate call stack for the thread. A separate call stack is created by it, and then run() is called by JVM.
+
+Synchronization is implemented in Java with a concept called monitors. Only one thread can own a monitor at a given time. When a thread acquires a lock, it is said to have entered the monitor. All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor.
+
+Semaphore:
+    
