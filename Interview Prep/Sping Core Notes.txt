@@ -1,0 +1,316 @@
+SPRING CORE NOTES:
+	Inversion Of Control:
+		class Employee{  
+			Address address;  
+			Employee(){  
+				address=new Address();  
+			}  
+		}  	 
+		
+		-> Very Tightly coupled. Now it can be lossly coupled using the following pattern:
+		
+		class Employee{  
+			Address address;  
+			Employee(Address address){  
+				this.address=address;  
+			}  
+		}  
+
+Creating a simple bean:
+	
+	package com.javatpoint;  
+  
+	public class Student {  
+	private String name;  
+	  
+	public String getName() {  
+	    return name;  
+	}  
+	  
+	public void setName(String name) {  
+	    this.name = name;  
+	}  
+	  
+	public void displayInfo(){  
+	    System.out.println("Hello: "+name);  
+	}  
+	}  	
+	
+	APPLICATIONCONTEXT.XML
+	
+		<?xml version="1.0" encoding="UTF-8"?>  
+		<beans  
+		    xmlns="http://www.springframework.org/schema/beans"  
+		    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+		    xmlns:p="http://www.springframework.org/schema/p"  
+		    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+			       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+		  
+		<bean id="studentbean" class="com.javatpoint.Student">  
+		<property name="name" value="Vimal Jaiswal"></property>  
+		</bean>  
+		  
+		</beans>  
+	
+	
+	TEST CLASS:
+		
+		package com.javatpoint;  
+  
+		import org.springframework.beans.factory.BeanFactory;  
+		import org.springframework.beans.factory.xml.XmlBeanFactory;  
+		import org.springframework.core.io.ClassPathResource;  
+		import org.springframework.core.io.Resource;  
+		  
+		public class Test {  
+		public static void main(String[] args) {  
+		    Resource resource=new ClassPathResource("applicationContext.xml");  
+		    BeanFactory factory=new XmlBeanFactory(resource);  
+		      
+		    Student student=(Student)factory.getBean("studentbean");  
+		    student.displayInfo();  
+		}  
+		}  
+		
+IOC CONTAINERS:
+	The main tasks performed by IoC container are:
+
+		to instantiate the application class
+		to configure the object
+		to assemble the dependencies between the objects
+		
+	Its get the information from applicationcontext.xml and works accordingly.
+	
+	Two IOC Containers:
+		BeanFactory
+		ApplicationContext
+		
+	The ApplicationContext interface is built on top of the BeanFactory interface. It adds some extra functionality than BeanFactory such as si	mple integration with Spring's AOP, message resource handling (for I18N), event propagation, application layer specific context (e.g. WebA		pplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.
+	
+	BEAN FACTORY:
+		Resource resource=new ClassPathResource("applicationContext.xml");  
+		BeanFactory factory=new XmlBeanFactory(resource);  
+	
+	APPLICATION CONTEXT:
+		ApplicationContext context =   
+		    new ClassPathXmlApplicationContext("applicationContext.xml");  
+		    
+WAYS TO PERFORM DEPENDENCY INJECTION IN SPRING FRAMEWORK:
+	1.Setter
+	2.Constructor
+	
+Autowiring:
+	Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor in	jection.
+
+	Autowiring can't be used to inject primitive and string values. It works with reference only.
+	
+	Modes of Autowiring:
+		No.	Mode	Description
+		1)	no		It is the default autowiring mode. It means no autowiring bydefault.
+		2)	byName		The byName mode injects the object dependency according to name of the bean. In such case, property name an					d bean name must be same. It internally calls setter method.
+		3)	byType		The byType mode injects the object dependency according to type. So property name and bean name can be dif						ferent. It internally calls setter method.
+		4)	constructor	The constructor mode injects the dependency by calling the constructor of the class. It calls the construc						tor having large number of parameters.
+		5)	autodetect	It is deprecated since Spring 3.
+		
+Spring AOP:
+	Aspect Oriented Programming (AOP) compliments OOPs in the sense that it also provides modularity. But the key unit of modularity is aspec        t than class.
+
+	AOP breaks the program logic into distinct parts (called concerns). It is used to increase modularity by cross-cutting concerns.
+
+	A cross-cutting concern is a concern that can affect the whole application and should be centralized in one location in code as possible, 	such as transaction management, authentication, logging, security etc.
+	
+	AOP CONCEPTS AND TERMINOLOGY:
+		1. Joint point:Join point is any point in your program such as method execution, exception handling, field access etc. Spring sup					ports only method execution join point.
+		2. Advice:
+			Advice represents an action taken by an aspect at a particular join point. There are different types of advices:
+
+			Before Advice: it executes before a join point.
+			After Returning Advice: it executes after a joint point completes normally.
+			After Throwing Advice: it executes if method exits by throwing an exception.
+			After (finally) Advice: it executes after a join point regardless of join point exit whether normally or exceptional retur							n.
+			Around Advice: It executes before and after a join point.
+		3. Pointcut : It is an expression language of AOP that matches join points.
+		4. Aspect : It is a class that contains advices, joinpoints etc.
+		5. Interceptor : It is an aspect that contains only one advice.
+
+Spring Bean Annotations:
+				@Configuration:Configuration classes can contain bean definition methods annotated with @Bean
+						@Configuration
+						class VehicleFactoryConfig {
+						 
+						    @Bean
+						    Engine engine() {
+							return new Engine();
+						    }
+						 
+						}
+						
+				@ComponentScan
+				@Component : @Component is a class level annotation. During the component scan, Spring Framework automatically det							ects classes annotated with @Component.
+					@Repository, @Service, @Configuration, and @Controller are all meta-annotations of @Component
+				@Bean : return the component/bean
+	
+	@Configuration
+	@ComponentScan(basePackages = "com.baeldung.annotations")
+	class VehicleFactoryConfig {}
+	
+			OR
+	@Configuration
+	@ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
+	class VehicleFactoryConfig {}
+	
+				A)@Configuration
+				@ComponentScan(basePackages = "com.baeldung.annotations")
+				@ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
+				class VehicleFactoryConfig {}
+				
+				B)@Configuration
+				@ComponentScans({ 
+				  @ComponentScan(basePackages = "com.baeldung.annotations"), 
+				  @ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
+				})
+				class VehicleFactoryConfig {}
+				
+PROFILES IN SPRING:
+
+	@Component
+	@Profile("dev")[when dev is active] or @Profile("!dev")[dev is not active]
+	public class DevDatasourceConfig
+	
+	@Value is used to get the details fo the active profile 
+	
+		public class ProfileManager {
+		    @Value("${spring.profiles.active:}")
+		    private String activeProfiles;
+		 
+		    public String getActiveProfiles() {
+			for (String profileName : activeProfiles.split(",")) {
+			    System.out.println("Currently active profile - " + profileName);
+			}
+		    }
+		}
+	
+PROPERTIES IN SPRING:
+	@PropertySource annotation, as a convenient mechanism for adding property sources to the environment.We can define multiple properties location as well. This annotation is to be used in conjunction with Java-based configuration and the @Configuration annotation:
+		@Configuration
+		@PropertySource("classpath:foo.properties")
+		public class PropertiesWithJavaConfig {
+		    //...
+		}
+		
+		@PropertySources({
+			    @PropertySource("classpath:foo.properties"),
+			    @PropertySource("classpath:bar.properties")
+			})
+
+@Autowired Annotation:
+	
+	Its a way to inject dependency in the Spring project. If more than one bean of the same type is available in the container, the framework will throw NoUniqueBeanDefinitionException.
+			
+			@Component("fooFormatter")
+			public class FooFormatter implements Formatter {
+			  
+			    public String format() {
+				return "foo";
+			    }
+			}
+			 
+			@Component("barFormatter")
+			public class BarFormatter implements Formatter {
+			  
+			    public String format() {
+				return "bar";
+			    }
+			}
+			 
+			@Component
+			public class FooService {
+			      
+			    @Autowired
+			    private Formatter formatter;
+			}
+
+@Qualifier Annotation:
+	By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected.
+	
+			public class FooService {
+		      
+			    @Autowired
+			    @Qualifier("fooFormatter")
+			    private Formatter formatter;
+			}
+	
+			@Component
+			@Qualifier("fooFormatter")
+			public class FooFormatter implements Formatter {
+			    //...
+			}
+			 
+			@Component
+			@Qualifier("barFormatter")
+			public class BarFormatter implements Formatter {
+			    //...
+			}
+	 
+	 There's another annotation called @Primary that we can use to decide which bean to inject when ambiguity is present regarding dependency injection.
+	 
+getBean() API for retrieving bean in Spring Framework:
+			@Configuration
+			class AnnotationConfig {
+			 
+			    @Bean(name = {"tiger", "kitty"})
+			    @Scope(value = "prototype")
+			    Tiger getTiger(String name) {
+				return new Tiger(name);
+			    }
+			 
+			    @Bean(name = "lion")
+			    Lion getLion() {
+				return new Lion("Hardcoded lion name");
+			    }
+			 
+			    interface Animal {}
+			}
+
+Method to retrive Bean by Name:
+	Object lion = context.getBean("lion");
+
+Method to retrive Bean by name and type:
+	Object lion  = context.getBean("lion",Lion.class);
+
+Method to retrive bean by type:
+	Lion lion = context.getBean(Lion.class);
+
+Method to retrieve bean by name and constructor parameters: Same is done with Type and constructor parameters
+	Lion lion = context.getBean("lion","Simba");
+	
+	
+VARIOUS SCOPES OF BEAN:
+
+	SR.NO.	SCOPE & DESCRIPTION
+	---------------------------
+	1	
+			singleton
+
+	This scopes the bean definition to a single instance per Spring IoC container (default).
+
+	2	
+			prototype
+
+	This scopes a single bean definition to have any number of object instances.
+
+	3	
+			request
+
+	This scopes a bean definition to an HTTP request. Only valid in the context of a web-aware Spring ApplicationContext.
+
+	4	
+			session
+
+	This scopes a bean definition to an HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+	5	
+			global-session
+
+	This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+			
+		

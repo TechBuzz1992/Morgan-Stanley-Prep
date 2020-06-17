@@ -1,0 +1,88 @@
+Maven Commands
+
+Maven Version : mvn -version
+Maven Install : sudo apt install maven
+Effective POM/Total POM : mvn help : effective-pom
+Building the project : mvn install
+Clean and building the project : mvn clean install
+Dependency copying : mvn dependency:copy-dependencies
+
+Maven Directory Structure:
+	- src
+	  - main
+	    - java
+	    - resources
+	    - webapp
+	  - test
+	    - java
+	    - resources
+
+	- target
+
+Typical pom file:
+
+	<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	    <modelVersion>4.0.0</modelVersion>
+
+	    <groupId>com.jenkov.crawler</groupId>
+	    <artifactId>java-web-crawler</artifactId>
+	    <version>1.0.0</version>
+	    
+	      <dependencies>
+
+		<dependency>
+		  <groupId>org.jsoup</groupId>
+		  <artifactId>jsoup</artifactId>
+		  <version>1.7.1</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.8.1</version>
+		  <scope>test</scope>
+		</dependency>
+
+	      </dependencies>
+	    
+
+	    <build>
+	    </build>
+
+	</project>
+	
+External dependency:
+	
+	<dependency>
+	  <groupId>mydependency</groupId>
+	  <artifactId>mydependency</artifactId>
+	  <scope>system</scope>
+	  <version>1.0</version>
+	  <systemPath>${basedir}\war\WEB-INF\lib\mydependency.jar</systemPath>
+	</dependency>
+	
+Maven Build Life Cycles:
+	default : life cycle handles everything related to compiling and packaging your project
+	clean : life cycle handles everything related to removing temporary files from the output directory, including generated source files, co			mpiled classes, previous JAR files etc.
+	site : life cycle handles everything related to generating documentation for your project.
+	
+Each build life cycle is divided into a sequence of build phases, and the build phases are again subdivided into goals. Thus, the total build process is a sequence of build LIFE CYCLE(s), BUILD PHASES and GOALS.
+
+
+BUILD PHASE	DESCRIPTION
+---------------------------------
+validate	Validates that the project is correct and all necessary information is available. This also makes sure the dependencies are downlo		aded.
+compile	Compiles the source code of the project.
+test		Runs the tests against the compiled source code using a suitable unit testing framework. These tests should not require the code be 		packaged or deployed.
+package	Packs the compiled code in its distributable format, such as a JAR.
+install	Install the package into the local repository, for use as a dependency in other projects locally.
+deploy		Copies the final package to the remote repository for sharing with other developers and projects.
+
+
+Git Fetch : git fetch origin : git fetch really only downloads new data from a remote repository - but it doesn't integrate any of this new data in				to your working files. Fetch is great for getting a fresh view on all the things that happened in a remote reposito				ry.
+				Due to it's "harmless" nature, you can rest assured: fetch will never manipulate, destroy, or screw up anything. Th				is means you can never fetch often enough.
+Git Pull : git pull origin master : git pull, in contrast, is used with a different goal in mind: to update your current HEAD branch with the late					st changes from the remote server.
+
