@@ -40,6 +40,10 @@ class Employee{
         this.salary = salary;
     }
 
+    public void incSalary(){
+        this.salary = this.salary*1.1;
+    }
+
     public String toString(){
         return "[Employee :" + this.id + " " + this.name + " " + this.salary + " ]";
          
@@ -51,8 +55,12 @@ public class StreamAPIExamples {
     public static void main(String[] args) {
         Employee[] arrayOfEmps = {
             new Employee(1, "Jeff Bezos", 100.0), 
-            new Employee(2, "Bill Gates", 200.0), 
-            new Employee(3, "Mark Zuckerberg", 400.0)
+            new Employee(2, "Jeff Gates", 200.0), 
+            new Employee(3, "Harsh Dusane", 400.0)
+            // new Employee(4, "Flush Webber", 500.0),
+            // new Employee(5, "Mark Sabastian", 200.0),
+            // new Employee(6, "Mukesh Mr", 600.0),
+            // new Employee(7, "Hash Map", 800.0)
         };
 
         Stream<Double> empStreamSalary = Stream.of(arrayOfEmps).map(employee -> employee.getSalary());
@@ -135,11 +143,36 @@ public class StreamAPIExamples {
         System.out.println("Even numbers are : " + map.get(true));
         System.out.println("Odd Numbers are : " + map.get(false));
 
-        
+        //grouping  the map by creating it as per the starting character
+        Map<Character, List<String>> charGroup = Arrays.asList("harsh","tarak","hash","leetcode","interviewbit","tara").stream().collect(Collectors.groupingBy(a -> new Character(a.charAt(0))));
+        for(Map.Entry<Character,List<String>> e : charGroup.entrySet()){
+            System.out.println(e.getKey() + " : " + e.getValue());;
+        }
 
-        
+        //grouping  the map by creating it as per the starting character and using mapping 
+        //to get the emp ids instead of names
+        Map<Character,List<Integer>> idGroup = empList.stream().collect(Collectors.groupingBy(e -> e.getName().charAt(0), Collectors.mapping(Employee::getId, Collectors.toList())));
+        for(Map.Entry<Character,List<Integer>> e: idGroup.entrySet()){
+                System.out.println(e.getKey() +" : " +e.getValue());
+        }
+
+        //Parallel Streams : Use-case : increase the salary by 10%
+        empList.stream().parallel().forEach(Employee::incSalary);
+        System.out.println(empList);
+
+        List<Integer> intMapParallel = Arrays.asList(1,2,3,4,5,6,7,8,9).stream().parallel().map(i -> i*2).collect(Collectors.toList());
+        System.out.println(intMapParallel);
+
+        //Infinite Streams
+        Stream.generate(Math::random).limit(5).forEach(System.out::println);
+
+        //iterate in stream 
+        Stream<Integer> evenNumStream = Stream.iterate(2, i-> i+2);
+        for(Integer i : evenNumStream.limit(5).collect(Collectors.toList())){
+            System.out.println(i);
+        }
+
+        //takeWhile stops as soon as it finds the firct occurence as false whereas filter will run through the overall stream
+        //Stream.of(1,2,3,4,5,6,7,1,2,3,4,5,6,7).takeWhile(s -> s<=5).forEach(System.out::println);
     }
-
-
-    
 }
