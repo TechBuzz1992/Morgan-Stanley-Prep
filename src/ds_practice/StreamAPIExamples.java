@@ -130,6 +130,13 @@ public class StreamAPIExamples {
         Vector<String> nameVector = empList.stream().map(Employee::getName).collect(Collectors.toCollection(Vector::new));
         System.out.println(nameVector);
 
+        //partioning the array into even and odd and store the same in hashmap
+        Map<Boolean,List<Integer>> map = Arrays.asList(1,2,3,4,5,6,7,8,9).stream().collect(Collectors.partitioningBy(i -> i%2 == 0));
+        System.out.println("Even numbers are : " + map.get(true));
+        System.out.println("Odd Numbers are : " + map.get(false));
+
+        
+
         
     }
 
