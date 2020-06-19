@@ -1,0 +1,4 @@
+Stream APIs:
+	List<String> = list.stream()
+	
+	
