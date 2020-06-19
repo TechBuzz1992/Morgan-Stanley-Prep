@@ -121,7 +121,7 @@ Pair Programming : (google docs)
 		String abc, permutations
 		Linkedlist, largest, and delete immediate left and right
 		Array, -ve and +ve , 
-	Sort key vales 
+		Sort key vales 
 	Concurrent hashmap
 	Employee class, Stream api
 	LinkedList, find the nth node from end
