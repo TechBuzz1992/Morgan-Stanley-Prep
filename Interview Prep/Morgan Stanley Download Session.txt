@@ -166,8 +166,8 @@ Pair Programming : (google docs)
 	
 		drive() -> binding and design patterns
 		class diagram of the above one
-	Adapter design pattern -> usecase of design pattern
-	class A-> fistname and last name and ClassB -fname and lname, how to share data betrewn them
+		Adapter design pattern -> usecase of design pattern
+		class A-> fistname and last name and ClassB -fname and lname, how to share data betrewn them
 		Arrays A and B, equality, comparator and comparable
 	
 		Java 8 , internal impl of fucntional interface
