@@ -12,13 +12,17 @@ public class ListNodeOps {
 
         ListNodeOps obj = new ListNodeOps();
 
-        obj.linkedListTraversal(head);
+        // obj.linkedListTraversal(head);
 
-        int ans = obj.getNthFromEnd(head, 3).data;
+        // int ans = obj.getNthFromEnd(head, 3).data;
 
-        System.out.println(ans);
+        // System.out.println(ans);
 
-        System.out.println("Get the largest value : " + obj.getTheLargestNodeValue(head));
+        // System.out.println("Get the largest value : " + obj.getTheLargestNodeValue(head));
+
+        ListNode reverse = obj.reverseLinkedList(head);
+        obj.linkedListTraversal(reverse);
+
 
     }
 
@@ -61,5 +65,21 @@ public class ListNodeOps {
         }
         return ans;
     }
+
+    public ListNode reverseLinkedList(ListNode head){
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next = null;
+        while(curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+        head = prev;
+        return head;
+    }
+
 
 }

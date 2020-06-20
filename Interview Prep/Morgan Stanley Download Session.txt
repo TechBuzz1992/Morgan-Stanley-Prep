@@ -122,81 +122,81 @@ Pair Programming : (google docs)
 		Linkedlist, largest, and delete immediate left and right
 		Array, -ve and +ve , 
 		Sort key vales 
-	Concurrent hashmap
-	Employee class, Stream api
-	LinkedList, find the nth node from end
-	Stack, Sorted Stack,
-	Sycnchronization, recrursive, lock, can it get the lock or will it acquire the lock.
-	HashMap, Bucket, get and put , multiple threads
+		Concurrent hashmap
+		Employee class, Stream api
+		LinkedList, find the nth node from end
+		Stack, Sorted Stack,
+		Sycnchronization, recrursive, lock, can it get the lock or will it acquire the lock.
+		HashMap, Bucket, get and put , multiple threads
 	
-	Design Pattern: Singleton
-	Executor service interface
-	Concurrent modification exception
-	Internal of HahsMap
-	a=10, b=20, swap
-	duplicates values from string
-	compare and compatable
-	hashmap vs treemap
-	treemap, sorting sorting order key
+		Design Pattern: Singleton
+		Executor service interface
+		Concurrent modification exception
+		Internal of HahsMap
+		a=10, b=20, swap
+		duplicates values from string
+		compare and compatable
+		hashmap vs treemap
+		treemap, sorting sorting order key
 	
-	Array, second largest element, maxHeap,
+		Array, second largest element, maxHeap,
 	
-	Setrialization, internal
-	exception handleing in thread
-	generic lambda expression code
-	internal linkedhashmap
+		Setrialization, internal
+		exception handleing in thread
+		generic lambda expression code
+		internal linkedhashmap
 	
-	hashMap on hashcode and equals, contract
-	hashmap, iterate, stream and print values
+		hashMap on hashcode and equals, contract
+		hashmap, iterate, stream and print values
 	
-	string, palindrome, can it be created as palindrome?
-	Class, color, site, stream and lambda expression, reverse-sort based on color
+		string, palindrome, can it be created as palindrome?
+		Class, color, site, stream and lambda expression, reverse-sort based on color
 	
-	reverse linked list
-	Compute(), thread safe of compute()
-	custome class as key in hashmap
-	fucntion, muliktple threads, any thread but only one hread can write, locking mechanism used?
+		reverse linked list
+		Compute(), thread safe of compute()
+		custome class as key in hashmap
+		fucntion, muliktple threads, any thread but only one hread can write, locking mechanism used?
 	
-	remove words, start with vowel, 
-	static and dynamic binding(compile and runtime ploymorphism)
-	init final variable in constructor, class loader and object init
-	implement linked list, memory allocation process in ll
-	binary search tree
-	DTO as key in hashmap
+		remove words, start with vowel, 
+		static and dynamic binding(compile and runtime ploymorphism)
+		init final variable in constructor, class loader and object init
+		implement linked list, memory allocation process in ll
+		binary search tree
+		DTO as key in hashmap
 	
-	drive() -> binding and design patterns
+		drive() -> binding and design patterns
 		class diagram of the above one
 	Adapter design pattern -> usecase of design pattern
 	class A-> fistname and last name and ClassB -fname and lname, how to share data betrewn them
-	Arrays A and B, equality, comparator and comparable
+		Arrays A and B, equality, comparator and comparable
 	
-	Java 8 , internal impl of fucntional interface
-	Sorting of two arays in huge
+		Java 8 , internal impl of fucntional interface
+		Sorting of two arays in huge
 	
-	stock and data structures to sorted the thread based
+		stock and data structures to sorted the thread based
 	
-	Iterface called I, class A is implemnting that, class b extends  , foo() method
-	immutable class, final non declared and its problems, 
-	multiple notepads tabs open, go from 1 to 3, come to tab 2 and delete tab 2 -> linked list
+		Iterface called I, class A is implemnting that, class b extends  , foo() method
+		immutable class, final non declared and its problems, 
+		multiple notepads tabs open, go from 1 to 3, come to tab 2 and delete tab 2 -> linked list
 	
-	concurrent modifcation exception and how many threads
+		concurrent modifcation exception and how many threads
 	
-	bubble sort to sort and array from ascending to descding order
-	hashmap and performance issue and reasons and solutions
+		bubble sort to sort and array from ascending to descding order
+		hashmap and performance issue and reasons and solutions
 	
-	default hashcode works internally
-	hashmap, string as key and added new string , size of map
+		default hashcode works internally
+		hashmap, string as key and added new string , size of map
 	
-	exceptions in java 8
-	start vs run
+		exceptions in java 8
+		start vs run
 	
-	try catch and finally
-	average of every column, stream and grouping by and avergae and single line
-	volatiel and atomic keyword
+		try catch and finally
+		average of every column, stream and grouping by and avergae and single line
+		volatiel and atomic keyword
 	
-	binary and linear search
+		binary and linear search
 	
-	immutable classes in java 
+		immutable classes in java 
 	
 	
 	
