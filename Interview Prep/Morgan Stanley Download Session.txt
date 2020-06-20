@@ -130,7 +130,7 @@ Pair Programming : (google docs)
 		HashMap, Bucket, get and put , multiple threads
 	
 		Design Pattern: Singleton
-	Executor service interface
+		Executor service interface
 		Concurrent modification exception
 		Internal of HahsMap
 		a=10, b=20, swap
@@ -143,7 +143,7 @@ Pair Programming : (google docs)
 	
 		Setrialization, internal
 		exception handleing in thread
-	generic lambda expression code
+		generic lambda expression code
 		internal linkedhashmap
 	
 		hashMap on hashcode and equals, contract
@@ -155,7 +155,7 @@ Pair Programming : (google docs)
 		reverse linked list
 		Compute(), thread safe of compute()
 		custome class as key in hashmap
-	fucntion, muliktple threads, any thread but only one hread can write, locking mechanism used?
+		fucntion, muliktple threads, any thread can read but only one hread can write, locking mechanism used?
 	
 		remove words, start with vowel, 
 		static and dynamic binding(compile and runtime ploymorphism)
