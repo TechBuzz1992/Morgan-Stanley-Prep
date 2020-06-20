@@ -2,7 +2,7 @@ package ds_practice;
 
 import java.util.*;
 
-class Test {
+class Test implements Comparable<Test> {
     private int id;
     private String name;
     private int key;
@@ -41,6 +41,11 @@ class Test {
         return "[ Test : " + " : " + this.getId() + " : " + this.getName() + " : " + this.getKey() + " ]";
     }
 
+    @Override
+    public int compareTo(Test o) {
+        return this.getKey() - o.getKey();
+    }
+
 }
 
 class SortByKey implements Comparator<Test> {
@@ -54,8 +59,8 @@ class SortByKey implements Comparator<Test> {
 
 public class KeysSorting {
     public static void main(String[] args) {
-        //TreeMap<Test,String> map = new TreeMap<Test,String>();
-        TreeMap<Test,String> map = new TreeMap<Test,String>(new SortByKey());
+        TreeMap<Test,String> map = new TreeMap<Test,String>();
+        //TreeMap<Test,String> map = new TreeMap<Test,String>(new SortByKey());
         map.put(new Test(1,"harsh",121),"harsh");
         map.put(new Test(2,"xyz",381),"xyz");
         map.put(new Test(3,"klm",331),"klm");
