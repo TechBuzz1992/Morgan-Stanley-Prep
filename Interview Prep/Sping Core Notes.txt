@@ -85,7 +85,7 @@ IOC CONTAINERS:
 		BeanFactory
 		ApplicationContext
 		
-	The ApplicationContext interface is built on top of the BeanFactory interface. It adds some extra functionality than BeanFactory such as si	mple integration with Spring's AOP, message resource handling (for I18N), event propagation, application layer specific context (e.g. WebA		pplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.
+	The ApplicationContext interface is built on top of the BeanFactory interface. It adds some extra functionality than BeanFactory such as simple integration with Spring's AOP, message resource handling (for I18N), event propagation, application layer specific context (e.g. WebApplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.
 	
 	BEAN FACTORY:
 		Resource resource=new ClassPathResource("applicationContext.xml");  
@@ -100,7 +100,7 @@ WAYS TO PERFORM DEPENDENCY INJECTION IN SPRING FRAMEWORK:
 	2.Constructor
 	
 Autowiring:
-	Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor in	jection.
+	Autowiring feature of spring framework enables you to inject the object dependency implicitly. It internally uses setter or constructor injection.
 
 	Autowiring can't be used to inject primitive and string values. It works with reference only.
 	
